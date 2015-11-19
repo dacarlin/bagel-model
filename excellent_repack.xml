@@ -1,0 +1,27 @@
+<ROSETTASCRIPTS>
+    <SCOREFXNS>
+      <ms weights=talaris2014 /> 
+    </SCOREFXNS>
+    <RESIDUE_SELECTORS>
+      <Neighborhood name=neighbors resnums=%%target%% distance=10.0 />
+    </RESIDUE_SELECTORS>
+    <TASKOPERATIONS>
+      <OperateOnResidueSubset name=op selector=neighbors>
+        <RestrictToRepackingRLT/>
+      </OperateOnResidueSubset>
+      <DetectProteinLigandInterface name=detect />
+    </TASKOPERATIONS>
+    <FILTERS>
+    </FILTERS>
+    <MOVERS>
+      <MutateResidue name=mutate target=%%target%% new_res=%%new%% />
+      <PackRotamersMover name=repack scorefxn=ms task_operations=op,detect />
+    </MOVERS>
+    <APPLY_TO_POSE>
+    </APPLY_TO_POSE>
+    <PROTOCOLS>
+        <Add mover=mutate />
+        <Add mover=repack />
+    </PROTOCOLS>
+    <OUTPUT />
+</ROSETTASCRIPTS>
