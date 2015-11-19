@@ -1,6 +1,6 @@
 #$ -S /bin/bash
-#$ -e /home/carlin/bagel/logs
-#$ -o /home/carlin/bagel/logs
+#$ -e logs
+#$ -o logs
 #$ -cwd
 #$ -N excellent
 

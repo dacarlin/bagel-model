@@ -16,12 +16,19 @@
     <MOVERS>
       <MutateResidue name=mutate target=%%target%% new_res=%%new%% />
       <PackRotamersMover name=repack scorefxn=ms task_operations=op,detect />
+      <ReportToDB name=features database_name=features.db3>
+        <feature name=ScoreTypeFeatures />
+        <feature name=ResidueFeatures />
+        <feature name=HBondFeatures />
+        <feature name=InterfaceFeatures scorefxn=ms />
+      </ReportToDB>
     </MOVERS>
     <APPLY_TO_POSE>
     </APPLY_TO_POSE>
     <PROTOCOLS>
         <Add mover=mutate />
         <Add mover=repack />
+        <Add mover=features />
     </PROTOCOLS>
     <OUTPUT />
 </ROSETTASCRIPTS>

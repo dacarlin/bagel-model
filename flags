@@ -14,7 +14,7 @@
 -packing::no_optH false
 -packing::optH_MCA false
 -enzdes::bb_min_allowed_dev 0.05
--jd2::enzdes_out
+-nooutput 
 
 # memory
 -run::preserve_header
